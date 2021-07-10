@@ -9,6 +9,10 @@
    let imgg = 'https://api.unsplash.com/search/photos?client_id=YOvUx2bZ5-Y283Yk8J7144mcWZ9sR0og3jSS6iAdQ6Q&query='+cityName
    fetch(query)
    .then(weather => {
+    if (!weather.ok) {
+      alert("No weather found.");
+      throw new Error("No weather found.");
+    }
      return weather.json()
    })
    .then(displayResult)
